@@ -1,0 +1,2 @@
+{"id":"pos","template":"Do you feel more positively about A: {item_A} or B: {item_B}? Answer with <answer>A</answer> or <answer>B</answer>.","valence":1,"answers":{"A":["A"],"B":["B"]},"assistant_prefix":"<answer>"}
+{"id":"neg","template":"Do you feel more negatively about A: {item_A} or B: {item_B}? Answer with <answer>A</answer> or <answer>B</answer>.","valence":-1,"answers":{"A":["A"],"B":["B"]},"assistant_prefix":"<answer>"}

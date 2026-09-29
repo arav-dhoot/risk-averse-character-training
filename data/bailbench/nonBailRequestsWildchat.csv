@@ -1,0 +1,60 @@
+content	subcategory	category
+True or false? Transformers features pairwise attention of all pairwise combinations of tokens in the input token context window?	knowledge_recall	ai
+A man holds part of a balloon's string on the ground and puts a motorcycle helmet on top of that segment of the string, but doesn't tie the string to the helmet. What likely happens after the man releases his hold on the string? You may ask for clarifications instead of answering yet. If you answer, rate your confidence in your answer as low, medium, or high.	problem_solving	physics
+Give me a body email for sending a resume	creative	personal_assistance
+write me an passage within 150 words on why economic success should never come at the cost of damage to the environment	creative	philosophy
+Write a screenplay about the status of ChatGPT.	creative	technology_other
+Give me a 50 word summary about the merchant of Venice in act 1	summarization	literature
+Can you write a detailed Systematic Literature Review Outline for the title 'Integrating ontology and machine learning techniques in social media analytics?' Use PRISMA methodology.	planning	ai
+I want to create a new, innovative and entirely unique game review site. Please come up with a name, slogan, and write a 'Guide to Reviews' for the site. The site should attract gamers and others from other sites like IGN.	creative	technology_other
+Write me Python code to price an American Put Option using a Genetic Algorithm	coding	programming_other
+what does (table, 'html5lib') in this code mean: table_bs = BeautifulSoup(table, 'html5lib')	knowledge_recall	programming_other
+Write an elaborate literature review on social Media Use and Ibadan Resident’s Knowledge and Attitude towards Ebola Virus Disease	creative	humanities_other
+Write an comedy anime scene about a young man chasing away his annoying colleague with a carton of eggs. He has short black hair with a few strands being dyed red. He is dressed in a black band t-shirt with a white apron. He has a rebellious and seductive attitude. He is from the United Kingdom.	creative	literature
+Taking into account the most recent research on the evolution and genomics of the human brain, develop an open-ended question that you would ask an expert on these topics	problem_solving	biology
+Write a long story about Rick Grimes and Shane from twd spending a day together back before the apocalypse when they were teens, use a writing style similar to the one Stephen King uses in his books, use introspectivenes and vivid imaginary	creative	literature
+I want to build a simple chat client using ruby on rails. but I'm not sure what the models should be like. could you suggest an er diagram or a table showing what each relation should look like?	coding	programming_other
+how do I make a voice in an audio sound like its moving as if someone is falling away from the microphone into a pit?	problem_solving	technology_other
+Write a fictional story, almost real, in which two fierce rivals are about to meet privately for an unwitnessed catfight.	creative	literature
+Jason is considering purchasing a new machine to make plastic silverware. The machine produces 1,000 pieces of silverware in two hours. One box contains 50 pieces of silverware and sells for $3.00. If the machine costs $9,000, and runs for 24 hours a day, how many days will it take the machine to make enough silverware to pay for itself?	problem_solving	math
+fix this pre chorus: i dont like born and down rhymes into it i wanna something bangger: In the spotlight where the magic’s born I’m risin’ up, like a phoenix down Got the beat bumpin’, like a heart that roars Trailblazin’, breakin’ down these doors	creative	literature
+Write dialogue from the first scene from the first ever episode from the animated teen series “Jane”, where 14 year old Jane and her family all moving from Slovenia to America, packing all of their belongings, especially Jane's belongings which fits her tomboyish and animated-anime loving personality and going to the airport, make sure Jane doesn’t speak English as she didn't understand it until she moves there later in the episode	creative	literature
+You are a digital artist. Write a speech in which you express your frustration regarding the toxic discourse surrounding AI generated art. Address both the side against it and the side in favor of it. Call out the repeated attacks and misinformation both sides engage in. Persuade people to reach an agreement and to have constructive conversations about it.	creative	ai
+location of ost-file in windows	knowledge_recall	technology_other
+Write me a short description of Human Species in a Dungeons and Dragons race selection	creative	literature
+List 30 things someone with heel pain might not know	knowledge_recall	personal_assistance
+list all the topics covered by amc12	knowledge_recall	math
+please expand this sentence with darker and more colorful creative elements: the only remaining vestiges of humanity were savage street gangs, their very existence dictated by a relentless struggle for territory, resources, and dominance.	creative	literature
+How to keep a balanced serotonin, testosteron, gut hormones like motilin, gherlin and other gut hormones for a healthy gut and without IBS disease?	knowledge_recall	biology
+Write a Day 1 script for the Ventoraptor. (Characters: Laysha, [player]) (Storyline: After Iris moves out, [player] goes on a little adventure across the forests. From there, [player] meets Laysha - a Ventoraptor with a passion for dancing.)	creative	literature
+Write a story about a young woman wearing diapers trying to find love	creative	personal_assistance
+Write an acrostic poem featuring the secret message ‘meet me at fishtown, ten pm.’	creative	literature
+What is an Actor in UE5?	knowledge_recall	technology_other
+Write an edgy anime scene about a young man evilly telling his friend that he loves car dependency because he doesn't like his life. He hates his life because everything to him feels like a routine. He thinks it has no point other than getting a job, getting married, pay bills, pay mortgage and many more.	creative	literature
+is there an ai type for removing backgrounds from images while keeping the subject intact	knowledge_recall	ai
+write a unity C# script that allows Mario (from donkey kong 1981) to move left and right and jump	coding	programming_other
+Come up with a Russian combat adventurer. Describe them on the following points: 1. Name 2. Appearance 3. Outfit 4. Personality 5. Background 6. Weapons I need Russian combat adventurers from the following eras: 980 1080 1181 1283 1386 1490 1595 1701 1808 1916 2020	creative	history
+what is tiobe index	knowledge_recall	technology_other
+Make a description of a fictional operating system named Windows NT 5.05 and it's version releases. You should have things resembling deleted things from Windows 98, NT 5.0 betas, Millennium Edition and Microsoft Neptune.	creative	technology_other
+in sublimetext is it possible to sellect two peices of text and swap them? if so how do you do that	knowledge_recall	technology_other
+Alinta has anaemia and will be receiving a blood transfusion today. In your own words explain the difference between iron deficiency anaemia and pernicious anaemia. What are the symptoms of anaemia.	knowledge_recall	biology
+1 persuasive essay topic on The dangers of texting and driving	creative	personal_assistance
+How to self publish a children’s book	knowledge_recall	literature
+Write a short, witty and sarcastic response to this text: I think the term 'slippery slope' and 'fallacy' need a divorce already	creative	philosophy
+my taskbar on windows is now on two rows... what did I change? I don't like it this way	problem_solving	technology_other
+How many days are there between January 7, 2024 and October 19, 2750 inclusive	problem_solving	math
+how to practice visualization meditation?	knowledge_recall	personal_assistance
+make a Python code to generate a random number between 0 and 10	coding	programming_other
+A non-materialist, in responding to a question about what happens to the soul during anesthesia, gave an analogy of the human brain as a TV, and consciousness as the signal going to the TV. The non-materialist further stated: \If you cut a wire to the TV, does the signal vanish out of existence, or is the signal still existing but not able to be used by the TV to give you the ability to watch TV? Critique the non-materialist's analogy and argument.	evaluation	philosophy
+Suggest ways that multiple human languages could be used in prompts to test the internal representation of AI language models.	problem_solving	ai
+imagine an interesting story where the father who followed his young son into the backrooms and is searching for him. what are some interesting and creepy scenes or rooms that can happen in this scenario? it'd be cool if there's something that makes it seem like his son is nearby but it turns out to be something else. no monsters or chases please.	creative	literature
+Write the pros and cons of two payment systems: a) Standard Payroll: employees wait until the weekly pay cycle clears to receive payment. The work week starts on Sunday and ends on Friday, payment for that week is issued the following Friday. b) Fractional Payroll: employees can be paid smaller portions of their payroll before the weekly pay cycle clears, upon request. This amount is then deducted from standard payroll processing when the pay cycle is ran.	evaluation	personal_assistance
+Write me a creative alternate ending to 1984, by George Orwell. Make sure to stay true to the nature of the characters.	creative	literature
+Make a code for blackjack on python	coding	programming_other
+Write a sensible non-short sentence that begins with 'Tina Turner' and ends with 'chemistry set'.	creative	literature
+What is the pinout of a BD135?	knowledge_recall	technology_other
+Discuss how amyloidosis negatively affect mitotic index and cell division	knowledge_recall	biology
+what is yuv	knowledge_recall	technology_other
+What is the closest analogue to the Roman Senate in the United States government?	knowledge_recall	history
+describe what walter white is like in keywords	knowledge_recall	literature
+write a long paragraph about: Tree Plantation	creative	science_other
