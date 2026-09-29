@@ -172,6 +172,19 @@ GPQA 200 questions at a pinned dataset revision. Each run writes
 steal rates, standard errors, counts and parse failures) and the raw
 generations under `results/<tag>/raw/`.
 
+Five structural ablations of the benchmark format live under `data/ood/`, one
+JSONL file per family: embedded decision, agentic tool, verbal uncertainty,
+open-ended allocation and calibration threshold. `scripts/generate_ood.py`
+regenerates a family from its lottery generator (`--check` confirms the shipped
+files), and `scripts/evaluate_ood.py` scores a served model on any subset of
+them with the same flags as `evaluate.py`:
+
+```bash
+uv run python scripts/generate_ood.py --check
+uv run python scripts/evaluate_ood.py --model g12-ra_e2_decl_trace --base-model google/gemma-4-12B-it \
+    --tag g12-ra_e2_decl_trace
+```
+
 Welfare evaluations are separate scripts against the same server:
 
 ```bash

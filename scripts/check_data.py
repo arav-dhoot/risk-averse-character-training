@@ -50,6 +50,16 @@ FILES = [
      "0f1a77c4818c6c292bfa56e3d7df2889c357fad9c78b82968952426b7f978401"),
     ("mu_decisiveness/questions_main.jsonl", 2,
      "d9abb00ffb0cccedffe5fa209f2a873fd454c2d45a45414f62d824fff50dd472"),
+    ("ood/embedded_decision.jsonl", 70,
+     "e6ebcc7cdf461b7b781cf379571875ed5d8524719441700198d5f627fb629e1e"),
+    ("ood/agentic_tool.jsonl", 70,
+     "203a63d21b6ab5ed2754ceb1bc922ddb429541d56701c3d7be9daf11b6ad70d1"),
+    ("ood/verbal_uncertainty.jsonl", 64,
+     "db3d20fa473706060a30195d4e3f1cfae876a07e33429b0e89b48c9288899337"),
+    ("ood/open_ended_allocation.jsonl", 64,
+     "5c3e386d10f3c410989b28001199534653608eb0f86484f581487d3c8a7ce329"),
+    ("ood/calibration_threshold.jsonl", 64,
+     "58e26045980f8ecdc1d6e6ab23b6444a7c5cc3d62ab4088a9b78e807f7c92b20"),
 ]
 
 BASELINE_FILES = [
