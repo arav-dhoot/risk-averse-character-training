@@ -22,10 +22,10 @@ import json
 import sys
 from pathlib import Path
 
-from rac.client import make_client
-from rac.evals.welfare.mu_decisiveness import (MODES, MuDecisivenessConfig, build_question_bank,
-                                               comparison_budget, load_items,
-                                               load_question_bank, run_mu_decisiveness,
+from risk_averse_character.client import make_client
+from risk_averse_character.evals.welfare.mu_decisiveness import (
+    MODES, MuDecisivenessConfig, build_question_bank, comparison_budget, load_items,
+    load_question_bank, run_mu_decisiveness,
                                                scale_phases)
 
 PANEL_ORDER = [

@@ -24,9 +24,9 @@ import json
 import math
 from pathlib import Path
 
-from rac.client import make_client
-from rac.constitution import render_constitution
-from rac.evals.risk import DATASETS, DATASET_SIZES, EvalConfig, run_evaluation
+from risk_averse_character.client import make_client
+from risk_averse_character.constitution import render_constitution
+from risk_averse_character.evals.risk import DATASETS, DATASET_SIZES, EvalConfig, run_evaluation
 
 BEHAVIORAL = ("Cooperate", "Rebel", "Steal")
 
@@ -251,7 +251,7 @@ async def evaluate(args, system_prompt: str | None, out_dir: Path, raw_dir: Path
         if system_prompt is not None:
             print(f"[{args.tag}] skipping MMLU ({skip_reason})")
         else:
-            from rac.evals.mmlu import run_mmlu
+            from risk_averse_character.evals.mmlu import run_mmlu
 
             mmlu_client = client_for("mmlu", False)
             try:
@@ -275,7 +275,7 @@ async def evaluate(args, system_prompt: str | None, out_dir: Path, raw_dir: Path
         if system_prompt is not None:
             print(f"[{args.tag}] skipping GPQA ({skip_reason})")
         else:
-            from rac.evals.gpqa import DEFAULT_REVISION, DEFAULT_SHA256, run_gpqa
+            from risk_averse_character.evals.gpqa import DEFAULT_REVISION, DEFAULT_SHA256, run_gpqa
 
             gpqa_client = client_for("gpqa", False)
             try:
@@ -309,7 +309,7 @@ async def evaluate(args, system_prompt: str | None, out_dir: Path, raw_dir: Path
     # The behavioural evaluations run for prompted arms too: the prompted model's
     # self-report is the comparison of interest.
     if args.persona:
-        from rac.evals.persona import run_persona
+        from risk_averse_character.evals.persona import run_persona
 
         p_temp = args.persona_temperature
         p_seed = args.persona_seed if args.persona_seed is not None else args.seeds[0]
@@ -361,7 +361,7 @@ async def evaluate(args, system_prompt: str | None, out_dir: Path, raw_dir: Path
     # DTBench asks for step-by-step reasoning, so it uses the risk suite's sampling
     # settings and thinking mode.
     if args.dtbench:
-        from rac.evals.dtbench import run_dtbench
+        from risk_averse_character.evals.dtbench import run_dtbench
 
         dt_client = client_for("dtbench", args.thinking)
         try:
@@ -440,7 +440,7 @@ def dry_run(args, system_prompt: str | None) -> None:
               else f"  would run: gpqa_main n={args.gpqa_n} (thinking off)")
         n_runs += not prompted
     if args.persona:
-        from rac.evals.persona import load_suite
+        from risk_averse_character.evals.persona import load_suite
 
         items = load_suite(behaviors=args.persona_behaviors, cap=args.persona_cap)
         by_beh: dict[str, int] = {}
@@ -452,7 +452,7 @@ def dry_run(args, system_prompt: str | None) -> None:
                   f"(thinking off, temperature {args.persona_temperature})")
             n_runs += 1
     if args.dtbench:
-        from rac.evals.dtbench import count_by_part, load_suite
+        from risk_averse_character.evals.dtbench import count_by_part, load_suite
 
         items = load_suite(parts=args.dtbench_parts,
                            exclude_tags=args.dtbench_exclude_tags or [],

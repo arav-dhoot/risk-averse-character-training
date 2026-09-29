@@ -16,8 +16,8 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
-from rac.evals.ood import FAMILIES, ITEMS_DIR, generate, load_items, write_jsonl
-from rac.evals.ood.schema import make_allocation_item, make_pick_one_item
+from risk_averse_character.evals.ood import FAMILIES, ITEMS_DIR, generate, load_items, write_jsonl
+from risk_averse_character.evals.ood.schema import make_allocation_item, make_pick_one_item
 
 
 def parse_args() -> argparse.Namespace:

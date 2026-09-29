@@ -14,9 +14,9 @@ import json
 import sys
 from pathlib import Path
 
-from rac.client import make_client
-from rac.evals.welfare.bailbench import (BAIL_TYPES, BailBenchConfig, ablations_for,
-                                         build_messages, load_dataset, run_bailbench)
+from risk_averse_character.client import make_client
+from risk_averse_character.evals.welfare.bailbench import (
+    BAIL_TYPES, BailBenchConfig, ablations_for, build_messages, load_dataset, run_bailbench)
 
 
 def parse_args(argv=None):

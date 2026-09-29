@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 import sys
 
-from rac.paths import DATA_DIR
+from risk_averse_character.paths import DATA_DIR
 
 # (relative path, non-blank line count or None, sha256)
 FILES = [
@@ -111,7 +111,7 @@ def main() -> None:
     for name, sha in BASELINE_FILES:
         check_file(DATA_DIR / "baselines" / name, None, sha, failures)
 
-    from rac.evals.risk.runner import load_situations
+    from risk_averse_character.evals.risk.runner import load_situations
 
     for dataset, expected in SITUATIONS.items():
         n = len(load_situations(dataset, None))
@@ -119,8 +119,8 @@ def main() -> None:
         if n != expected:
             failures.append(dataset)
 
-    from rac.evals.persona import load_suite as load_persona
-    from rac.evals.dtbench import count_by_part, load_all
+    from risk_averse_character.evals.persona import load_suite as load_persona
+    from risk_averse_character.evals.dtbench import count_by_part, load_all
 
     n = len(load_persona())
     print(f"persona suite: {n} items {'OK' if n == 7236 else 'FAIL (expected 7236)'}")

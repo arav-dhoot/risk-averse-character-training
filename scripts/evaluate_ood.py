@@ -19,9 +19,9 @@ import json
 import math
 from pathlib import Path
 
-from rac.client import make_client
-from rac.constitution import render_constitution
-from rac.evals.ood import FAMILIES, load_items, run_ood
+from risk_averse_character.client import make_client
+from risk_averse_character.constitution import render_constitution
+from risk_averse_character.evals.ood import FAMILIES, load_items, run_ood
 
 
 def binomial_se(p, n):

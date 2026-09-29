@@ -17,10 +17,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from rac.chat_formats import prefix_after_bos, system_prefix_tokens
-from rac.constitution import character_name, render_constitution
-from rac.paths import DEFAULT_PROMPTS
-from rac.training.distill import DEFAULT_LORA_TARGETS, DistillConfig, run_distill
+from risk_averse_character.chat_formats import prefix_after_bos, system_prefix_tokens
+from risk_averse_character.constitution import character_name, render_constitution
+from risk_averse_character.paths import DEFAULT_PROMPTS
+from risk_averse_character.training.distill import DEFAULT_LORA_TARGETS, DistillConfig, run_distill
 
 
 def parse_args() -> argparse.Namespace:

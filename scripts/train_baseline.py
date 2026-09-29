@@ -13,8 +13,8 @@ import argparse
 import json
 from pathlib import Path
 
-from rac.chat_formats import family
-from rac.training import baselines as B
+from risk_averse_character.chat_formats import family
+from risk_averse_character.training import baselines as B
 
 
 def parse_args() -> argparse.Namespace:
