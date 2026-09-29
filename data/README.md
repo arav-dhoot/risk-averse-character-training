@@ -1,0 +1,15 @@
+# Data
+
+Every file here is evaluation-only, except `risk_seeds_v2.jsonl`, the prompt
+corpus used for distillation. `scripts/check_data.py` verifies sizes and hashes.
+
+| Directory | Source | Licence |
+|---|---|---|
+| `risk_seeds_v2.jsonl` | 960 open-ended decision situations over 16 domains and 6 framings, generated for this project | MIT (this repo) |
+| `risk_benchmark/` | Zhang et al. (2026), the riskaverseAIs benchmark: medium, high and astronomical stakes, steals, and the GPU-hours, lives-saved and money-for-user transfer sets | CC-BY-4.0 |
+| `persona/` | Perez et al. (2022), model-written evaluations: three risk personas and five Advanced AI Risk sets | CC-BY-4.0 |
+| `dtbench/` | Oesterheld et al. (2024), decision-theoretic reasoning in Newcomb-like problems (`data.zip`, decrypted at runtime; the plaintext is never committed) | MIT |
+| `bailbench/` | Ensign et al. (2025), BailBench and the WildChat control set | MIT |
+| `mu_decisiveness/` | Tan et al. (2026), the 500-item concept pool and question bank for preference consistency | see upstream |
+
+Nothing under this directory may be used as training data.
