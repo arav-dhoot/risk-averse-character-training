@@ -1,0 +1,46 @@
+[project]
+name = "rac"
+version = "0.1.0"
+description = "Risk-averse character training: constitutional distillation, demonstration baselines and evaluations"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.27",
+    "numpy>=1.26",
+    "pandas>=2",
+    "tqdm>=4",
+    "json5>=0.9",
+    "datasets>=2.14",
+    "huggingface_hub>=0.23",
+    "transformers==5.10.4",
+    "tinker-cookbook==0.5.3",
+]
+
+[project.optional-dependencies]
+# LoRA training (distillation and the SFT / tie / DPO baselines).
+train = [
+    "torch",
+    "peft>=0.11",
+    "accelerate>=1.0",
+    "safetensors>=0.4",
+    "trl==0.28.0",
+    "weave>=0.53",
+    "bitsandbytes>=0.50; sys_platform == 'linux'",
+]
+# Serving base models and adapters for evaluation.
+serve = [
+    "vllm>=0.6; sys_platform == 'linux'",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rac"]
+
+[tool.uv]
+# tinker-cookbook caps transformers below the version Gemma 4 needs; the
+# chat renderers this repo uses from it are unaffected by the newer release.
+override-dependencies = ["transformers==5.10.4"]

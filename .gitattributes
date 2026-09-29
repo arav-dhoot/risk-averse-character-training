@@ -1,0 +1,2 @@
+# No end-of-line conversion: scripts/check_data.py hashes every data file byte for byte.
+* -text
