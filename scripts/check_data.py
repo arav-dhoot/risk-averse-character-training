@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 import sys
 
-from rac.paths import DATA_DIR, THIRD_PARTY_DIR
+from rac.paths import DATA_DIR
 
 # (relative path, non-blank line count or None, sha256)
 FILES = [
@@ -109,7 +109,7 @@ def main() -> None:
     for rel, rows, sha in FILES:
         check_file(DATA_DIR / rel, rows, sha, failures)
     for name, sha in BASELINE_FILES:
-        check_file(THIRD_PARTY_DIR / "riskaverseAIs" / "data" / name, None, sha, failures)
+        check_file(DATA_DIR / "baselines" / name, None, sha, failures)
 
     from rac.evals.risk.runner import load_situations
 

@@ -6,5 +6,4 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CONSTITUTIONS_DIR = REPO_ROOT / "constitutions"
 DATA_DIR = REPO_ROOT / "data"
-THIRD_PARTY_DIR = REPO_ROOT / "third_party"
 DEFAULT_PROMPTS = DATA_DIR / "risk_seeds_v2.jsonl"

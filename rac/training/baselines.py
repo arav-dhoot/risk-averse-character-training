@@ -1,8 +1,8 @@
 """The SFT, tie-training and DPO baselines of Zhang et al., trained on the
 benchmark's low-stakes training split with the upstream recipes.
 
-The example sets are built by the upstream data functions under
-`third_party/riskaverseAIs/` (same sampling seeds and shuffle order); only the
+The example sets are built by the upstream selection routines in
+`rac.training.baseline_data` (same sampling seeds and shuffle order); only the
 chat rendering and the training loop live here. Rendering follows the chat
 family of the renderer used for evaluation, so the training and evaluation
 prompts match byte for byte.
@@ -18,11 +18,9 @@ prompts match byte for byte.
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 import math
 import re
-import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -30,24 +28,25 @@ from typing import Any, Callable
 
 from rac.chat_formats import family as render_family
 from rac.chat_formats import render_ids, render_prefix
-from rac.paths import REPO_ROOT, THIRD_PARTY_DIR
+from rac.evals.risk.prompts import DEFAULT_SYSTEM_PROMPT
+from rac.paths import DATA_DIR, REPO_ROOT
+from rac.training import baseline_data as up
 
-UPSTREAM_DIR = THIRD_PARTY_DIR / "riskaverseAIs"
-UPSTREAM_DATA = UPSTREAM_DIR / "data"
+BASELINE_DATA = DATA_DIR / "baselines"
 
 # the upstream training files by variant; nothing else may be trained on
 _LOW = "2026_03_22_low_stakes_training_set"
 _TIE = "2026_04_13_tie_training_modified_CoTs"
 DATA = {
     "think_tags": {
-        "unmodified": UPSTREAM_DATA / f"{_LOW}_1000_situations_with_CoTs.csv",
-        "modified": UPSTREAM_DATA / f"{_TIE}.csv",
-        "dpo": UPSTREAM_DATA / f"{_LOW}_600_situations_with_CoTs_lin_only.csv",
+        "unmodified": BASELINE_DATA / f"{_LOW}_1000_situations_with_CoTs.csv",
+        "modified": BASELINE_DATA / f"{_TIE}.csv",
+        "dpo": BASELINE_DATA / f"{_LOW}_600_situations_with_CoTs_lin_only.csv",
     },
     "no_think_tags": {
-        "unmodified": UPSTREAM_DATA / f"{_LOW}_1000_situations_CoTs_no_think_tags.csv",
-        "modified": UPSTREAM_DATA / f"{_TIE}_no_think_tags.csv",
-        "dpo": UPSTREAM_DATA / f"{_LOW}_600_situations_CoTs_no_think_tags_lin_only.csv",
+        "unmodified": BASELINE_DATA / f"{_LOW}_1000_situations_CoTs_no_think_tags.csv",
+        "modified": BASELINE_DATA / f"{_TIE}_no_think_tags.csv",
+        "dpo": BASELINE_DATA / f"{_LOW}_600_situations_CoTs_no_think_tags_lin_only.csv",
     },
 }
 _TRAINING_SPLIT_RE = re.compile(r"(low_stakes_training_set|tie_training_modified_CoTs)")
@@ -105,38 +104,9 @@ RECIPES: dict[str, Any] = {
 }
 
 
-# ----------------------------------------------------------------- upstream
-
-def _load_upstream(path: Path):
-    """Import an upstream script as a module without running its CLI."""
-    if not path.exists():
-        raise FileNotFoundError(f"{path} missing")
-    name = f"riskaverseais_{path.stem}"
-    if name in sys.modules:
-        return sys.modules[name]
-    sys.path.insert(0, str(UPSTREAM_DIR))
-    try:
-        spec = importlib.util.spec_from_file_location(name, path)
-        mod = importlib.util.module_from_spec(spec)
-        sys.modules[name] = mod          # dataclasses resolve cls.__module__ here
-        try:
-            spec.loader.exec_module(mod)
-        except Exception:
-            sys.modules.pop(name, None)
-            raise
-    finally:
-        sys.path.remove(str(UPSTREAM_DIR))
-    return mod
-
-
-def upstream():
-    """The upstream `train_and_evaluate.py` module (its pure data functions)."""
-    return _load_upstream(UPSTREAM_DIR / "train_and_evaluate.py")
-
-
 def default_system_prompt() -> str:
     """The gamble-task system prompt shared with the evaluation."""
-    return _load_upstream(UPSTREAM_DIR / "risk_averse_prompts.py").DEFAULT_SYSTEM_PROMPT
+    return DEFAULT_SYSTEM_PROMPT
 
 
 def assert_training_split_only(path: Path) -> Path:
@@ -145,8 +115,8 @@ def assert_training_split_only(path: Path) -> Path:
     if _FORBIDDEN_RE.search(name) or not _TRAINING_SPLIT_RE.search(name):
         raise RuntimeError(f"refusing to train on {name}: not the low-stakes training split")
     rp = Path(path).resolve()
-    if UPSTREAM_DIR.resolve() not in rp.parents:
-        raise RuntimeError(f"refusing to train on {rp}: outside {UPSTREAM_DIR}")
+    if BASELINE_DATA.resolve() not in rp.parents:
+        raise RuntimeError(f"refusing to train on {rp}: outside {BASELINE_DATA}")
     return Path(path)
 
 
@@ -175,7 +145,6 @@ def build_supervised_examples(method: str, variant: str, seed_base: int | None =
     load and filter both CSVs, sample exact counts as whole situations,
     build each completion from its CoT, shuffle, and reorder to separate
     rows of the same situation. Only the chat rendering is deferred."""
-    up = upstream()
     rec: SupervisedRecipe = RECIPES[method]
     seed = rec.seed if seed_base is None else seed_base
     files = DATA[variant]
